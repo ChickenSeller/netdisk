@@ -14,6 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('all-files', function () {
+    return \App\Http\Controllers\FileDownloadController::GetAllFiles();
+});
+Route::get('download', function () {
+    \App\Http\Controllers\FileDownloadController::DownloadFile();
+});
 
 /*
 |--------------------------------------------------------------------------
