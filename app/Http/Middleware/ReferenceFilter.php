@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Config;
+use App\Http\Controllers\LogController;
 use Closure;
 
 class ReferenceFilter
@@ -21,10 +22,12 @@ class ReferenceFilter
             return $next($request);
         }
         if($request->header('Referer')==""){
+            LogController::LogLeech($request->fullUrl());
             die("禁止盗链");
         }
         $referer = parse_url($request->header('Referer'));
         if($referer['host']!=$domain->value){
+            LogController::LogLeech($request->fullUrl());
             die("禁止盗链");
         }
         return $next($request);

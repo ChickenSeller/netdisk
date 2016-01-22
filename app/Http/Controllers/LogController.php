@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\BrowseLog;
 use App\DownloadLog;
 use App\File;
+use App\LeechLog;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -40,6 +40,14 @@ class LogController extends Controller
         $log->user_agent = LogController::getUA();
         $log->save();
         return true;
+    }
+
+    static public function LogLeech($url){
+        $log = new LeechLog();
+        $log->url = $url;
+        $log->ip = LogController::getIP();
+        $log->user_agent = LogController::getUA();
+        $log->save();
     }
 
     static public function getIP() {
