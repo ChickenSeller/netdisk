@@ -45,7 +45,7 @@ class FileDownloadController extends Controller
 
     static public function DownloadFile(){
         $id = intval(Input::get('file_id'));
-        $fileInfo = File::find($id);
+        $fileInfo = File::whereId($id)->whereBanned(false)->first();
         if($fileInfo==null){
             abort(404);
         }
@@ -55,6 +55,7 @@ class FileDownloadController extends Controller
         if (!is_file($sourceFile)) {
             abort(404);
         }
+        LogController::LogDownload($id);
         $len = filesize($sourceFile); //获取文件大小
         $filename = basename($sourceFile); //获取文件名字
         $ctype=FileDownloadController::GetFileExtension($outFile);
@@ -128,10 +129,6 @@ class FileDownloadController extends Controller
                 $ctype = "application/force-download";
         }
         return $ctype;
-    }
-
-    static public function LogDownload($file_id){
-
     }
 
 }

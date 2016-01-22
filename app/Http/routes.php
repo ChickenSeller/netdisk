@@ -14,12 +14,22 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('all-files', function () {
+Route::get('test', function () {
+    $str = "
+    <html>
+    <body>
+    <a href='download?file_id=1'>测试</a>
+</body>
+    </html>
+    ";
+    return $str;
+});
+Route::get('all-files',  function () {
     return \App\Http\Controllers\FileDownloadController::GetAllFiles();
 });
-Route::get('download', function () {
+Route::get('download', ['middleware'=>'referencefilter',function () {
     \App\Http\Controllers\FileDownloadController::DownloadFile();
-});
+}]);
 
 /*
 |--------------------------------------------------------------------------
