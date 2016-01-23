@@ -21,14 +21,19 @@ class ReferenceFilter
         if($domain == null){
             return $next($request);
         }
+        $ua = explode('/',LogController::getUA());
+        echo $ua[0];
+        switch($ua[0]){
+            default:
+        }
         if($request->header('Referer')==""){
             LogController::LogLeech($request->fullUrl());
-            die("禁止盗链1");
+            die("禁止盗链");
         }
         $referer = parse_url($request->header('Referer'));
         if($referer['host']!=$domain->value){
             LogController::LogLeech($request->fullUrl());
-            die("禁止盗链2");
+            die("禁止盗链");
         }
         return $next($request);
     }
