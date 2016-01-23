@@ -22,7 +22,7 @@ class ReferenceFilter
             return $next($request);
         }
         $ua = explode('/',LogController::getUA());
-        echo $ua[0];
+        var_dump($ua);
         switch($ua[0]){
             default:
         }
