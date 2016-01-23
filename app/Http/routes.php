@@ -12,7 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index')->with(['file_list'=>\App\Http\Controllers\FileDownloadController::GetAllFiles(),'title'=>'Kaguya的资源站']);
+});
+Route::get('view', function () {
+    $file = \App\Http\Controllers\FileDownloadController::GetFileInfoByID(\Illuminate\Support\Facades\Input::get('file_id'));
+    if($file==null){
+        abort(404);
+    }
+    return view('detail')->with(['file'=>$file,'title'=>'资源详情-'.$file->filename]);
 });
 Route::get('test', function () {
     $str = "

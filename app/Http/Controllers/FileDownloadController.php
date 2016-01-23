@@ -23,6 +23,7 @@ class FileDownloadController extends Controller
         if($file == null){
             return false;
         }
+        LogController::LogBrowse($id);
         return $file;
     }
 
