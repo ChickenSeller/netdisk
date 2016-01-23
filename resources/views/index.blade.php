@@ -6,7 +6,7 @@
             background:#e9eef2 url(/images/backdrop.png) repeat-x;
         }
         .frame0 {
-            min-width:425px;
+            min-width:491.75px;
             width: 75%;
             margin-left: auto;
             margin-right: auto;
@@ -19,7 +19,7 @@
             -moz-border-radius:15px;
         }
         .frame1 {
-            min-width:425px;
+            min-width:491.75px;
             width: 75%;
             margin-left: auto;
             margin-right: auto;

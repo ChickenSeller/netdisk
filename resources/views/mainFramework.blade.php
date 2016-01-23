@@ -15,7 +15,7 @@
     <script src="/js/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body style="min-width: 664px">
 @yield('content')
 <div style="text-align: center;width: 75%;min-width: 375px;margin-left: auto;margin-right: auto;">
     <p>
