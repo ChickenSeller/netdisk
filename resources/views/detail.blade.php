@@ -6,6 +6,10 @@
             background:#e9eef2 url(/images/backdrop.png) repeat-x;
         }
         .frame0 {
+            min-width:375px;
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
             margin-top: -11px;
             border-style: none double none double;
             border-width: 2px;
@@ -15,6 +19,10 @@
             -moz-border-radius:15px;
         }
         .frame1 {
+            min-width:375px;
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
             border-width:2px;
             border-color: #2aabd2;
             border-style: none double double double;
@@ -32,7 +40,7 @@
     </style>
 @stop
 @section('content')
-    <nav class="navbar navbar-default navbar-fixed-top frame0" style="width: 70%;margin-left: auto;margin-right: auto;min-width: 60%">
+    <nav class="navbar navbar-default navbar-fixed-top frame0">
         <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
         <div class="container-fluid">
             <div class="navbar-header">
@@ -54,7 +62,7 @@
         </div>
     </nav>
     <div style="margin-top: 50px;">
-        <div class="frame1" style=" width: 70%;margin-left: auto;margin-right: auto;">
+        <div class="frame1">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">资源详情</h3>
@@ -88,6 +96,11 @@
                                 </div>
                             </div>
                             <div class=\"col-lg-12\">
+                                <div class=\"col-lg-3\">
+                                    <strong>文件大小</strong>:%s
+                                </div>
+                            </div>
+                            <div class=\"col-lg-12\">
                                 <hr />
                             </div>
                             <div class=\"col-lg-12\">
@@ -104,7 +117,7 @@
                                 </p>
                             </div>
                         </div>",
-                                  $file->filename,$file->view_times,$file->uploader,$file->download_times,$file->created_at,'download?file_id='.$file->id, $file->description);
+                                  $file->filename,$file->view_times,$file->uploader,$file->download_times,$file->created_at,$file->size,'download?file_id='.$file->id, $file->description);
                             echo $string;
 
                         }

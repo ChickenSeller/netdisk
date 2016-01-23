@@ -15,9 +15,9 @@
     <script src="/js/respond.min.js"></script>
     <![endif]-->
 </head>
-<body style="min-width: 520px;">
+<body>
 @yield('content')
-<div style="text-align: center">
+<div style="text-align: center;width: 75%;min-width: 375px;margin-left: auto;margin-right: auto;">
     <p>
         Powered by Kaguya
     </p>
