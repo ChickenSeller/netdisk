@@ -23,12 +23,12 @@ class ReferenceFilter
         }
         if($request->header('Referer')==""){
             LogController::LogLeech($request->fullUrl());
-            die("禁止盗链");
+            die("禁止盗链1");
         }
         $referer = parse_url($request->header('Referer'));
         if($referer['host']!=$domain->value){
             LogController::LogLeech($request->fullUrl());
-            die("禁止盗链");
+            die("禁止盗链2");
         }
         return $next($request);
     }
