@@ -21,11 +21,6 @@ class ReferenceFilter
         if($domain == null){
             return $next($request);
         }
-        $ua = explode('/',LogController::getUA());
-        var_dump($ua);
-        switch($ua[0]){
-            default:
-        }
         if($request->header('Referer')==""){
             LogController::LogLeech($request->fullUrl());
             die("禁止盗链");

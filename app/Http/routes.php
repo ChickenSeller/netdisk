@@ -34,9 +34,9 @@ Route::get('test', function () {
 Route::get('all-files',  function () {
     return \App\Http\Controllers\FileDownloadController::GetAllFiles();
 });
-Route::get('download', ['middleware'=>'referencefilter',function () {
+Route::get('download', function () {
     \App\Http\Controllers\FileDownloadController::DownloadFile();
-}]);
+});
 
 /*
 |--------------------------------------------------------------------------
