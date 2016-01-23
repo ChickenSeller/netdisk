@@ -32,7 +32,7 @@
     </style>
 @stop
 @section('content')
-    <nav class="navbar navbar-default navbar-fixed-top frame0" style="width: 70%;margin-left: auto;margin-right: auto;">
+    <nav class="navbar navbar-default navbar-fixed-top frame0" style="width: 70%;margin-left: auto;margin-right: auto;min-height: 60%">
         <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
         <div class="container-fluid">
             <div class="navbar-header">
