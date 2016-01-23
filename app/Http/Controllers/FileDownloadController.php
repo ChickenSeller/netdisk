@@ -53,6 +53,7 @@ class FileDownloadController extends Controller
         $config = Config::whereKey('file_dir')->whereApplied(true)->first();
         $sourceFile = $config->value.$fileInfo->file_path;
         $outFile = $fileInfo->filename;
+        echo $sourceFile;
         if (!is_file($sourceFile)) {
             abort(404);
         }
